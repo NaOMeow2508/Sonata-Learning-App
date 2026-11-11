@@ -1,0 +1,31 @@
+node_modules/
+dist/
+*.tsbuildinfo
+# Local secrets and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+.npmrc
+credentials.json
+secrets.json
+# Editor and operating-system temporary files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+*.log
+.cache/
+coverage/
+.playwright/
+test-results/
+playwright-report/
