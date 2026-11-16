@@ -3,7 +3,7 @@ export type Copy = { zh: string; de: string };
 export const copy = (zh: string, de: string): Copy => ({ zh, de });
 export const chapter = {
  id: 'muelltrennung', title: copy('森林里的分类小队', 'Die Wald-Sortierbande'), topic: copy('垃圾分类', 'Mülltrennung'),
- story: copy('风把东西吹得到处都是。帮 Lumo 找到它们的家吧！', 'Der Wind hat alles verstreut. Hilf Lumo, den richtigen Platz zu finden!'),
+ story: copy('风把东西吹得到处都是。帮 Sonata 找到它们的家吧！', 'Der Wind hat alles verstreut. Hilf Sonata, den richtigen Platz zu finden!'),
  bins: [
   { id: 'paper', icon: '📰', label: copy('纸类', 'Papier'), name: 'Papiertonne', color: 'blue' },
   { id: 'bio', icon: '🍂', label: copy('厨余', 'Bio'), name: 'Biotonne', color: 'brown' },
@@ -27,3 +27,4 @@ export const chapter = {
  ],
  localNote: copy('各地垃圾桶颜色和收集规则可能不同，请以当地规定为准。空塑料酸奶杯与盖子分开；纸套归纸类。本课不涉及押金瓶和特殊垃圾。', 'Farben und Sammelregeln können vor Ort abweichen. Beachte die örtlichen Regeln. Leeren Kunststoffbecher und Deckel trennen; Papierbanderole ins Altpapier. Pfand und Sonderabfälle sind nicht Teil dieser Lektion.'),
 };
+

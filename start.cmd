@@ -2,8 +2,8 @@
 cd /d "%~dp0"
 where node >nul 2>nul
 if %errorlevel% equ 0 (
-  node node_modules\vite\bin\vite.js --host 127.0.0.1
+  node "%~dp0start-preview.cjs"
 ) else (
-  "%USERPROFILE%\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe" node_modules\vite\bin\vite.js --host 127.0.0.1
+  "C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1112-737-0_26.1112.737.0_x64__3k8sg7r9htsxt\dependencies\node\bin\node.exe" "%~dp0start-preview.cjs"
 )
-pause
+if errorlevel 1 pause

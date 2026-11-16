@@ -1,4 +1,4 @@
-export type Route = 'home' | 'map' | 'story' | 'mother' | 'lesson' | 'tasks';
+export type Route = 'home' | 'map' | 'story' | 'mother' | 'lesson' | 'tasks' | 'picturebook/s01e01-sc01' | 'picturebooks';
 export type Progress = {version:1;language:'zh'|'de';mode:'child'|'mother';child:{index:number;completed:boolean;paused:boolean};adult:{step:number;completed:boolean;paused:boolean};tasks:boolean[]};
 export const initialProgress = (): Progress => ({version:1,language:'zh',mode:'child',child:{index:0,completed:false,paused:false},adult:{step:0,completed:false,paused:false},tasks:[false,false,false]});
 export const storageKey = 'kleine-welten-v1';
@@ -21,4 +21,5 @@ export function advanceAdult(p:Progress):Progress {
  if(p.adult.paused||p.adult.completed)return p;
  const step=Math.min(4,p.adult.step+1);return {...p,adult:{step,paused:false,completed:step===4}};
 }
-export function getRoute(hash:string):Route {const value=hash.replace(/^#\/?/,'');return ['home','map','story','mother','lesson','tasks'].includes(value)?value as Route:'home';}
+export function getRoute(hash:string):Route {const value=hash.replace(/^#\/?/,'');return ['home','map','story','mother','lesson','tasks','picturebook/s01e01-sc01','picturebooks'].includes(value)?value as Route:'home';}
+
