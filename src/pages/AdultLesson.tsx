@@ -1,3 +1,4 @@
+import './AdultLearning.css';
 import {useState} from 'react';
 import {Pause,Play,ArrowRight,RotateCcw} from 'lucide-react';
 import {chapter,copy as c} from '../data/content';

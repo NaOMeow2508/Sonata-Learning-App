@@ -1,23 +1,25 @@
 import {ArrowRight,BookOpen,Clock3} from 'lucide-react';
-import {picturebookSeason} from '../data/picturebookCatalog';
+import {picturebookSeasons} from '../data/picturebookCatalog';
 import {copy as c} from '../data/content';
 import type {PageProps} from '../types';
 import './PicturebookCatalog.css';
 export default function PicturebookCatalog({go,t}:PageProps){
+  const season=picturebookSeasons.find(value=>location.hash===`#/${value.route}`) ?? picturebookSeasons[0];
   return <section className="pb-catalog" aria-label={t(c('绘本剧集目录','Bilderbuchfolgen'))}>
     <div className="page-heading">
       <span className="eyebrow">SONATA · {t(c('绘本阅读','Bilderbuchzeit'))}</span>
       <h1>{t(c('选择一段新的故事。','Wähle eine neue Geschichte.'))}</h1>
       <p>{t(c('和 Sonata 一起，在生活中发现小小的冒险。','Entdecke mit Sonata kleine Abenteuer im Alltag.'))}</p>
     </div>
-    <h2>{t(picturebookSeason.title)}</h2>
-    <div className="pb-episode-list">{picturebookSeason.episodes.map((episode,index)=><button
+    <div className="pb-season-heading"><img src={season.cover} alt={t(season.title)}/><div><span>{t(c('一起发现生活里的小世界','Gemeinsam den Alltag entdecken'))}</span><h2>{t(season.title)}</h2></div></div>
+    {season.episodes.length===0&&<div className="pb-season-empty"><BookOpen size={40}/><h2>{t(c('选集即将更新','Neue Folgen folgen bald'))}</h2><p>{t(c('这一季的故事正在准备中。','Die Geschichten dieser Staffel werden vorbereitet.'))}</p></div>}
+    <div className="pb-episode-list">{season.episodes.map((episode,index)=><button
       key={episode.id}
       className="pb-episode"
       disabled={!episode.route}
       onClick={()=>{if(episode.route)go(episode.route);}}
     >
-      <span className="pb-episode-icon"><BookOpen size={25}/></span>
+      {episode.route?<img className="pb-episode-cover" src="/picturebook/s01e01-sc01/S01E01_SC01_p01.png" alt={t(c('Sonata 在秋日公园','Sonata im herbstlichen Park'))}/>:<span className="pb-episode-icon"><BookOpen size={32}/></span>}
       <span className="pb-episode-copy">
         <small>{index<5?t(c(`第 ${index+1} 集`,`FOLGE 0${index+1}`)):t(c('特别篇','SONDERFOLGE'))}</small>
         <strong>{t(episode.title)}</strong>
@@ -27,3 +29,4 @@ export default function PicturebookCatalog({go,t}:PageProps){
     </button>)}</div>
   </section>;
 }
+

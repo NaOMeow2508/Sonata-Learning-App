@@ -1,16 +1,20 @@
-import {ArrowRight,Leaf,BookOpen,Heart,Check,Clock3} from 'lucide-react';
-
-import {chapter,copy as c} from '../data/content';
+import {ArrowRight,BookOpen,Heart,Check,Leaf} from 'lucide-react';
+import {copy as c} from '../data/content';
 import type {PageProps} from '../types';
-export default function FamilyHome({p,go,t}:PageProps){return <>
- <div className="welcome"><span className="eyebrow">KLEINE SCHRITTE, GROSSE WELTEN</span><h1>{t(c('小小世界，一起发现。','Kleine Welten. Gemeinsam entdecken.'))}</h1><p>{t(c('一部手机，两条学习小路。每个人，都按自己的节奏。','Ein Handy, zwei Lernwege. Jeder lernt im eigenen Tempo.'))}</p></div>
- <section className="hero"><div className="hero-copy"><span className="tag"><Leaf size={14}/>{t(c('本周的共同冒险','Unser gemeinsames Abenteuer'))}</span><h2>{t(chapter.title)}</h2><p>{t(c('和 Sonata 一起，把小小的日常变成探索世界的开始。','Mit Sonata wird der Alltag zum Anfang einer kleinen Entdeckungsreise.'))}</p><div className="hero-meta"><span>♻ {t(chapter.topic)}</span><span><Clock3 size={14}/>5–10 {t(c('分钟','Min.'))}</span></div></div><div className="forest-art sonata-season-art"><img className="sonata-season-cover" src="/branding/season-one-cover.png" alt={t(c('Sonata 第一季封面','Sonata – Cover der ersten Staffel'))}/><span className="hello">{t(c('你好，我是 Sonata！','Hallo, ich bin Sonata!'))}</span></div></section>
- <div className="section-title"><h2>{t(c('今天，谁先开始？','Wer startet heute?'))}</h2><span>{t(c('随时可以换人哦','Ihr könnt jederzeit wechseln'))}</span></div>
- <div className="mode-grid"><button className="mode-card child-card" onClick={()=>go('map')}><img className="mode-icon sonata-adventure-icon" src="/branding/sonata-adventure.png" alt="Sonata"/><span className="mode-card-body"><span className="eyebrow">FÜR KINDER · 3–7</span><strong>{t(c('Sonata 的冒险','Sonatas Abenteuer'))}</strong><span>{t(c('听故事，玩一玩，发现新知识。','Zuhören, spielen und Neues entdecken.'))}</span><small>{p.child.completed?<><Check size={13}/>{t(c('首章已完成','Kapitel geschafft'))}</>:t(c('儿童模式 · 约 5 分钟','Kindermodus · ca. 5 Min.'))}</small></span><ArrowRight size={21}/></button>
- <button className="mode-card mother-card" onClick={()=>go('mother')}><span className="mode-icon"><BookOpen size={29}/></span><span className="mode-card-body"><span className="eyebrow">FÜR MAMA · A1</span><strong>{t(c('属于我的学习时间','Meine kleine Lernzeit'))}</strong><span>{t(c('一点德语，一点生活里的自信。','Ein bisschen Deutsch. Mehr Sicherheit im Alltag.'))}</span><small>{p.adult.completed?<><Check size={13}/>{t(c('微课程已完成','Lektion geschafft'))}</>:t(c('母亲模式 · 约 3 分钟','Mama-Modus · ca. 3 Min.'))}</small></span><ArrowRight size={21}/></button></div>
- <button className="mode-card child-card pb-entry" onClick={()=>go('picturebooks')}><img className="pb-cover" src="/branding/picturebook-cover.png" alt={t(c('Sonata 绘本封面','Sonata-Bilderbuchcover'))}/><span className="mode-card-body"><strong>{t(c('绘本阅读','Bilderbuchzeit'))}</strong><span>{t(c('和Sonata一起冒险','Mit Sonata auf Entdeckungsreise'))}</span></span><ArrowRight size={21}/></button><section className="together-strip"><span className="together-icon"><Heart size={25}/></span><div><h3>{t(c('学到的，一起试一试','Gemeinsam im Alltag ausprobieren'))}</h3><p>{t(c('放下手机，和孩子完成一个小小的家庭任务。','Handy zur Seite: Zeit für eine kleine Familienaufgabe.'))}</p></div><button className="text-button" onClick={()=>go('tasks')}>{t(c('查看现实任务','Zur Familienaufgabe'))}<ArrowRight size={17}/></button></section>
- <p className="gentle"><Leaf size={15}/>{t(c('没有排名，没有赶进度。你们的每一小步都很珍贵。','Keine Rangliste. Kein Zeitdruck. Jeder kleine Schritt zählt.'))}</p>
- </>;}
-
-
+import './FamilyHome.css';
+export default function FamilyHome({p,go,t}:PageProps){
+  return <div className="family-home">
+    <div className="home-welcome"><h1>{t(c('今天，和 Sonata 一起发现','Heute mit Sonata die Welt entdecken'))}</h1><p>{t(c('一部手机，两条学习小路','Ein Handy, zwei kleine Lernwege'))}</p><span aria-hidden="true">✦</span></div>
+    <section className="home-story-card">
+      <div className="home-story-art"><img src="/branding/home-picturebook-background.png?v=a00b7cac457c" alt={t(c('Sonata 绘本世界','Sonatas Bilderbuchwelt'))}/></div>
+      <div className="home-story-content"><h2>{t(c('和 Sonata 一起冒险','Mit Sonata auf Entdeckungsreise'))}</h2><button className="home-read-button" onClick={()=>go('picturebooks')}>{t(c('开始绘本阅读','Zum Bilderbuch'))}<ArrowRight size={28}/></button></div>
+    </section>
+    <div className="home-features">
+      <button className="home-feature home-child" onClick={()=>go('map')}><img className="home-cat" src="/branding/sonata-adventure.png" alt="Sonata"/><span className="home-feature-copy"><strong>{t(c('儿童冒险','Abenteuer für Kinder'))}</strong><span>{t(c('听故事，玩分类游戏','Geschichten hören und Sortieren spielen'))}</span>{p.child.completed&&<small><Check size={16}/>{t(c('首章已完成','Erstes Kapitel geschafft'))}</small>}</span><ArrowRight className="home-feature-arrow" size={28}/></button>
+      <button className="home-feature home-mother" onClick={()=>go('mother')}><span className="home-book-art" aria-hidden="true"><BookOpen size={54}/><span>✦</span></span><span className="home-feature-copy"><strong>{t(c('妈妈的学习时间','Lernzeit für Mama'))}</strong><span>{t(c('每天一点生活德语','Ein bisschen Deutsch für den Alltag'))}</span>{p.adult.completed&&<small><Check size={16}/>{t(c('微课程已完成','Lektion geschafft'))}</small>}</span><ArrowRight className="home-feature-arrow" size={28}/></button>
+      <button className="home-feature home-together" onClick={()=>go('tasks')}><Heart size={40}/><span className="home-feature-copy"><strong>{t(c('一起完成家庭小任务','Gemeinsam im Alltag ausprobieren'))}</strong><span>{t(c('放下手机，一起试一试','Handy zur Seite und gemeinsam loslegen'))}</span></span><ArrowRight className="home-feature-arrow" size={26}/></button>
+    </div>
+    <p className="home-gentle"><Leaf size={18}/>{t(c('没有排名，没有赶进度。每一小步都很珍贵。','Keine Rangliste, kein Zeitdruck. Jeder kleine Schritt zählt.'))}</p>
+  </div>;
+}
 

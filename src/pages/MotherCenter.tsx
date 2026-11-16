@@ -1,3 +1,4 @@
+import './AdultLearning.css';
 import {ArrowRight,Check,BookOpen,Clock3} from 'lucide-react';
 import {chapter,copy as c} from '../data/content';
 import type {PageProps} from '../types';

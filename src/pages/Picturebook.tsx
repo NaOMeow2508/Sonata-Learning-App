@@ -151,7 +151,7 @@ export default function Picturebook({t,lang}:PageProps){
     <nav className="pb-pagination" aria-label={ui("绘本翻页")}><button disabled={!ready||saved.page===0} onClick={()=>turn(saved.page-1)} aria-label={ui("上一页")}>←</button><span>{saved.page+1} / 9{pageComplete&&saved.page===8?t(c(' · 完成',' · Geschafft')):''}</span><button className={pageComplete?'pb-next-ready':undefined} disabled={!ready||saved.page===8} onClick={()=>turn(saved.page+1)} aria-label={ui("下一页")}>→</button></nav>
     <div className="pb-dots">{pages.map((_,index)=><button aria-label={t(c(`第 ${index+1} 页`,`Seite ${index+1}`))} aria-current={index===saved.page?'page':undefined} disabled={!ready} key={index} onClick={()=>turn(index)}>{index===saved.page?'●':'○'}</button>)}</div>
 
-    {heard.length===page.lines.length&&saved.page===8&&<div className="pb-end"><button onClick={()=>turn(0)}>{t(c('再读一遍','Noch einmal lesen'))}</button><a href="#/picturebooks">{t(c('返回目录','Zur Folgenübersicht'))}</a></div>}
+    {heard.length===page.lines.length&&saved.page===8&&<div className="pb-end"><button onClick={()=>turn(0)}>{t(c('再读一遍','Noch einmal lesen'))}</button><a href="#/picturebooks/season-1">{t(c('返回目录','Zur Folgenübersicht'))}</a></div>}
     </>}
   </section>;
 }

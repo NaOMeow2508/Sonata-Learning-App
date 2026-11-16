@@ -12,3 +12,11 @@ export const picturebookSeason = {
     {id:'s01special-b',title:copy('《特别篇下》','Sonderfolge · Teil 2'),route:null},
   ],
 };
+
+export const picturebookSeasons = [
+  {id:'season-1',title:picturebookSeason.title,description:copy('和 Sonata 一起发现人们的日常生活。','Entdecke mit Sonata den Alltag der Menschen.'),cover:'/branding/season-1.png',route:'picturebooks/season-1' as Route,episodes:picturebookSeason.episodes},
+  {id:'season-2',title:copy('第二季《旋律与色彩》','Staffel 2 · Die Melodien und Farben'),description:copy('和 Sonata 一起探索旋律与色彩。','Entdecke mit Sonata Melodien und Farben.'),cover:'/branding/season-2.png',route:'picturebooks/season-2' as Route,episodes:[]},
+  {id:'season-3',title:copy('第三季《我们能做什么》','Staffel 3 · Was können wir tun'),description:copy('和 Sonata 一起发现我们能做的小小行动。','Entdecke mit Sonata, was wir gemeinsam tun können.'),cover:'/branding/season-3.png',route:'picturebooks/season-3' as Route,episodes:[]},
+  {id:'season-4',title:copy('第四季《为什么会这样？》','Staffel 4 · Warum ist das so?'),description:copy('和 Sonata 一起提问，发现身边的为什么。','Stelle mit Sonata Fragen und entdecke das Warum im Alltag.'),cover:'/branding/season-4.png',route:'picturebooks/season-4' as Route,episodes:[]},
+];
+

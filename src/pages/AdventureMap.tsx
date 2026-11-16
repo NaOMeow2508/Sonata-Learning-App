@@ -1,3 +1,4 @@
+import './ChildLearning.css';
 import {ArrowRight,Check,LockKeyhole} from 'lucide-react';
 import {chapter,copy as c} from '../data/content';
 import Sonata from '../components/Sonata';

@@ -1,3 +1,4 @@
+import './RealTasks.css';
 import {Check,Smartphone,Heart} from 'lucide-react';
 import {chapter,copy as c} from '../data/content';
 import type {PageProps} from '../types';
